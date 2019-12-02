@@ -1,15 +1,13 @@
 import React from 'react';
 import './App.css';
 import Header from './Components/header';
-import SearchBox from './Components/search-box';
+import MainComponent from './Components/main-component';
 
 function App() {
   return (
     <div className="App">
       <Header />
-      <div className="container-fluid">
-        <SearchBox />
-      </div>
+      <MainComponent />
     </div>
   );
 }
