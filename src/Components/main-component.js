@@ -6,7 +6,7 @@ class MainComponent extends Component {
   constructor() {
     super();
     this.state = {
-      searchedTexts: []
+      searchedTexts: sessionStorage.getItem("searchedTexts")=== null ? [] : JSON.parse(sessionStorage.getItem("searchedTexts"))
     };
   }
 
@@ -14,6 +14,7 @@ class MainComponent extends Component {
     this.setState(prevState => ({
       searchedTexts: [...prevState.searchedTexts, text].slice(-10)
     }));
+    sessionStorage.setItem("searchedTexts", JSON.stringify(this.state.searchedTexts));
   }
   render() {
     return(
