@@ -9,7 +9,7 @@ class MainComponent extends Component {
     super();
     this.state = {
       searchedTexts: sessionStorage.getItem("searchedTexts") === null ? [] : JSON.parse(sessionStorage.getItem("searchedTexts")),
-      moviesData: null
+      moviesData: sessionStorage.getItem("movies") && JSON.parse(sessionStorage.getItem("movies"))
     };
   }
 
@@ -26,6 +26,7 @@ class MainComponent extends Component {
       this.setState( {
         moviesData: data
       });
+      sessionStorage.setItem("movies", JSON.stringify(this.state.moviesData));
       this.setSearchedTexts(keywords)
     })
   }
