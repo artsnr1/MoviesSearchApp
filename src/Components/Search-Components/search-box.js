@@ -29,9 +29,7 @@ class SearchBox extends Component {
       this.typingTimeout = setTimeout(
         () => {
           if( searchedText.trim() !== '') {
-          // ToDo: API CALL
           this.props.fetchMovies(this.state.keywords.join(" "))
-          // this.props.populateSearchHistory(this.state.keywords.join(" "));
           }
         }, 1000
       );

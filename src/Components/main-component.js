@@ -1,7 +1,7 @@
 import React, {Component} from "react";
-import SearchBox from "./search-box";
-import SearchHistoryList from "./search-history-list";
-import MovieGenreTabs from "./movie-genre-tabs";
+import SearchBox from "./Search-Components/search-box";
+import SearchHistoryList from "./Search-Components/search-history-list";
+import MovieGenreTabs from "./Tabs-Components/movie-genre-tabs";
 import { MovieDBService } from "../services/movieDBService";
 
 class MainComponent extends Component {
@@ -23,7 +23,6 @@ class MainComponent extends Component {
   getMovies = (keywords) => {
     MovieDBService.fetchMovies(keywords)
     .then((data) => {
-      console.log('hiiiiii', data)
       this.setState( {
         moviesData: data
       });
