@@ -38,7 +38,7 @@ class SearchBox extends Component {
     return(
       <div className="row justify-content-center py-4">
         <div className="col-md-6">
-          <input type="text" className="form-control" onChange={this.handleChange} placeholder="Type keywords to search for tweets ..."/>
+          <input type="text" className="form-control" onChange={this.handleChange} placeholder="Type keywords to search for movies ..."/>
           <span className="text-danger">{this.state.errorMsg}</span>
         </div>
       </div>
