@@ -26,6 +26,8 @@ class MovieGenreTabs extends Component {
         .filter((genre) => uniqueMoviesGenresId.includes(genre.id))
       })
     }
+    else 
+      return null;
   }
 
   displayTabContent() {
