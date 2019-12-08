@@ -3,14 +3,12 @@ import GenreListItem from "./genre-list-item";
 
 function GenreList(props) {
   return(
-    <div className="col-3">
-    <div className="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+    <div className="nav flex-column nav-pills">
     { 
 			props.selectedGenres
-      .map((genre, id) => <GenreListItem genre={genre} key={genre.id} id={id}/>)
+      .map((genre, id) => <GenreListItem genre={genre} key={genre.id}/>)
     }
     </div>
-  </div>
   )
 }
 

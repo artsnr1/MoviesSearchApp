@@ -15,8 +15,7 @@ function MovieListItem(props) {
   const poster = poster_path? `http://image.tmdb.org/t/p/w185/${poster_path}`
                 : process.env.PUBLIC_URL + '/default-movie-poster.jpeg'
   return(
-    // <div className="card mb-4" style={{minWidth: '15rem', maxWidth: '15rem'}}>
-    <div className="col-lg-4 col-md-6 col-sm-6 mb-4">
+    <div className="col-lg-4 col-md-6 col-sm-6 mb-4" style={{cursor: 'pointer'}} onClick={()=> props.onMovieSelect(props.movie)}>
       <div className="card h-100">
         <img src={poster} className="card-img-top" alt="..." style={{ height: '278px'}} />
         <div className="card-body d-flex flex-column justify-content-between">

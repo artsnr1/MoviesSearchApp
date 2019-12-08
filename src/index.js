@@ -5,8 +5,21 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
+import {
+    BrowserRouter,
+    Switch, 
+    Route
+  } from "react-router-dom";
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const routes = (
+  <BrowserRouter>
+    <Switch>
+        <Route path="/" component={App}  />
+        {/* <Redirect from="**" to="/" exact /> */}
+    </Switch>
+  </BrowserRouter>
+)
+ReactDOM.render(routes, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

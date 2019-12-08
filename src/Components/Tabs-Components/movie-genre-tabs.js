@@ -1,16 +1,23 @@
 import React, {Component} from "react";
 import { MovieDBService } from "../../services/movieDBService";
 import GenreList from "./genre-list";
-import MoviesListAllTabs from "./movies-list-all-tabs";
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,  
+    Redirect
+  } from "react-router-dom";
+import MoviesList from "./movies-list";
 
 class MovieGenreTabs extends Component {
   constructor() {
     super();
-    this.state ={
+    this.state = {
       genres: null,
       selectedGenres: null
     }
   }
+  
   componentDidMount() {
     MovieDBService.fetchGenres()
     .then(data => this.setState({genres: data['genres']}));
@@ -32,10 +39,27 @@ class MovieGenreTabs extends Component {
 
   displayTabContent() {
     return(
-      <div className="row py-4">
-        <GenreList selectedGenres={this.state.selectedGenres}/>
-        <MoviesListAllTabs selectedGenres={this.state.selectedGenres} movies={this.props.moviesData['results']}/>
-      </div>
+      <Router>
+        <div className="row py-4">
+          <div className="col-4 col-sm-3">
+            <GenreList selectedGenres={this.state.selectedGenres}/>
+          </div>
+          <div className="col-8 col-sm-9">
+            <Switch>
+              <Route exact path='/genres/:genreId' render={(props) => {
+                const MoviesByGenre = this.props.moviesData['results']
+                  .filter(movie => movie.genre_ids
+                  .includes(+props.match.params.genreId));
+
+                if(MoviesByGenre.length === 0)
+                  props.history.push(`/genres/${this.state.selectedGenres[0].id}`);
+                else return <MoviesList movies={MoviesByGenre}/>
+                }} />
+              <Redirect from="/**" to={`/genres/${this.state.selectedGenres[0].id}`} />
+            </Switch>
+          </div>
+        </div>
+      </Router>
     )
   }
 
@@ -45,14 +69,13 @@ class MovieGenreTabs extends Component {
       return null
     else {
       return (
-      <section>
-        <h4 className="text-primary">Search Results</h4>
-        {
-          moviesData['results'].length === 0 ? 
-          "There are no search results":
-           this.displayTabContent()
-        }
-      </section>
+        <section>
+          {
+            moviesData['results'].length === 0 ? 
+            "There are no search results":
+            this.displayTabContent()
+          }
+        </section>
       )
     }
   }
