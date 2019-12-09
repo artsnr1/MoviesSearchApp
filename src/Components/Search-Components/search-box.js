@@ -4,7 +4,7 @@ class SearchBox extends Component {
   constructor() {
     super();
     this.state = {
-      keywords: [],
+      keywords: sessionStorage.getItem("searchedTexts")? JSON.parse(sessionStorage.getItem("searchedTexts")).slice(-1)[0] : '',
       errorMsg: ""
     };
     this.typingTimeout = null;
@@ -18,7 +18,7 @@ class SearchBox extends Component {
         return this.setState({errorMsg: "You can search maximum 5 words at a time"});
       } else {  
         this.setState({
-          keywords: keywords,
+          keywords: searchedText,
           errorMsg: ""
         });
       }
@@ -29,7 +29,7 @@ class SearchBox extends Component {
       this.typingTimeout = setTimeout(
         () => {
           if( searchedText.trim() !== '') {
-          this.props.fetchMovies(this.state.keywords.join(" "))
+          this.props.fetchMovies(keywords.join(" "))
           }
         }, 1000
       );
@@ -38,7 +38,7 @@ class SearchBox extends Component {
     return(
       <div className="row justify-content-center py-4">
         <div className="col-md-6">
-          <input type="text" className="form-control" onChange={this.handleChange} placeholder="Type keywords to search for movies ..."/>
+          <input type="text" value={this.state.keywords} className="form-control" onChange={this.handleChange} placeholder="Type keywords to search for movies ..."/>
           <span className="text-danger">{this.state.errorMsg}</span>
         </div>
       </div>
