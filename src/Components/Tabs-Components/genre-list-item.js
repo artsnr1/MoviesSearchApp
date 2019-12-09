@@ -5,8 +5,8 @@ function GenreListItem(props) {
   return(
     <NavLink exact 
       to={`/genres/${props.genre.id}`} 
-      className="nav-link" 
-      activeClassName="active" >
+      className="nav-link primary-color" 
+      activeClassName="primary-bg-color text-white" >
       {props.genre.name}
     </NavLink>
   )

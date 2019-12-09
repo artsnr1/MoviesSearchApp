@@ -9,7 +9,7 @@ class MoviesDetail extends Component {
     return(
       <div className="row no-gutters">
         <div className="col-md-4">
-          <img src={poster} className="card-img" alt="..." />
+          <img src={poster} className="card-img" alt="movie poster" style={{maxHeight: 500}}/>
         </div>
         <div className="col-md-8">
           <div className="card-body text-left">
@@ -31,9 +31,9 @@ class MoviesDetail extends Component {
       <div className="modal fade" id="movie-detail-modal" tabIndex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
         <div className="modal-dialog modal-lg">
           <div className="modal-content">
-            <div className="modal-header">
+            <div className="modal-header primary-bg-color text-white">
               <h4 className="modal-title" id="myLargeModalLabel">{title}</h4>
-              <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+              <button type="button" className="close text-white" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">×</span>
               </button>
             </div>

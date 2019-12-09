@@ -41,10 +41,10 @@ class MovieGenreTabs extends Component {
     return(
       <Router>
         <div className="row py-4">
-          <div className="col-4 col-sm-3">
+          <div className="col-sm-3">
             <GenreList selectedGenres={this.state.selectedGenres}/>
           </div>
-          <div className="col-8 col-sm-9">
+          <div className="col-10 offset-1 offset-sm-0 col-sm-9">
             <Switch>
               <Route exact path='/genres/:genreId' render={(props) => {
                 const MoviesByGenre = this.props.moviesData['results']
@@ -72,7 +72,7 @@ class MovieGenreTabs extends Component {
         <section>
           {
             moviesData['results'].length === 0 ? 
-            "There are no search results":
+            <h6>There are no search results</h6>:
             this.displayTabContent()
           }
         </section>
