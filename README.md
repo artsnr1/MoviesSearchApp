@@ -1,3 +1,7 @@
+## Introduction
+
+Moviepedia lets you search and get information about latest movies and shows
+
 ## Setup Guide
 
 The command below is used to build a docker image
@@ -5,7 +9,7 @@ The command below is used to build a docker image
 docker build -t movipedia:dev .
 ```
 
-The second command below is used to run a docker container from the above created image.
+The command below is then used to run a docker container from the image created above.
 ```bash
 docker run -v ${PWD}:/app -v /app/node_modules -p 3001:3000 --rm movipedia:dev
 ```
