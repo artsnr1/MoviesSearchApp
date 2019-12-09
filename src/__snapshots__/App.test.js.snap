@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App renders correctly 1`] = `
+<div
+  className="App"
+>
+  <nav
+    className="navbar navbar-expand-lg navbar-dark bg-dark"
+  >
+    <a
+      className="navbar-brand"
+      href="/#"
+    >
+      <img
+        alt=""
+        className="d-inline-block align-middle mr-2"
+        src="/app-logo.png"
+        width="45"
+      />
+      <span
+        className="text-uppercase font-weight-bold"
+      >
+        Moviepedia
+      </span>
+    </a>
+  </nav>
+  <div
+    className="container-fluid"
+  >
+    <div
+      className="row justify-content-center py-4"
+    >
+      <div
+        className="col-md-6"
+      >
+        <input
+          className="form-control"
+          onChange={[Function]}
+          placeholder="Type keywords to search for movies ..."
+          type="text"
+          value=""
+        />
+        <span
+          className="text-danger"
+        >
+          
+        </span>
+      </div>
+    </div>
+    <div
+      className="row"
+    >
+      <section
+        className="col-md-9 my-4"
+      />
+      <aside
+        className="col-md-3 my-4"
+      >
+        <aside>
+          <h4
+            className="primary-color"
+          >
+            Search History
+          </h4>
+          <ul
+            className="list-group p-4"
+          >
+            There is no search history
+          </ul>
+        </aside>
+      </aside>
+    </div>
+  </div>
+</div>
+`;
