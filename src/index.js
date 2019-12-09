@@ -8,14 +8,15 @@ import 'bootstrap/dist/js/bootstrap.min.js';
 import {
     BrowserRouter,
     Switch, 
-    Route
+    Route,
+    Redirect
   } from "react-router-dom";
 
 const routes = (
   <BrowserRouter>
     <Switch>
-        <Route path="/" component={App}  />
-        {/* <Redirect from="**" to="/" exact /> */}
+        <Route path="/" component={App} exact/>
+        <Redirect from="**" to="/" />
     </Switch>
   </BrowserRouter>
 )
