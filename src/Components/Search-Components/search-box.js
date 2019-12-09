@@ -29,20 +29,19 @@ class SearchBox extends Component {
       this.typingTimeout = setTimeout(
         () => {
           if( searchedText.trim() !== '') {
-          // ToDo: API CALL
-          this.props.populateSearchHistory(this.state.keywords.join(" "));
+          this.props.fetchMovies(this.state.keywords.join(" "))
           }
         }, 1000
       );
   }
   render() {
     return(
-      <form className="row justify-content-center">
-        <div className="col-md-8">
-          <input type="text" className="form-control" onChange={this.handleChange} placeholder="Type keywords to search for tweets ..."/>
+      <div className="row justify-content-center py-4">
+        <div className="col-md-6">
+          <input type="text" className="form-control" onChange={this.handleChange} placeholder="Type keywords to search for movies ..."/>
           <span className="text-danger">{this.state.errorMsg}</span>
         </div>
-      </form>
+      </div>
     )
   }
 }
